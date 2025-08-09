@@ -18,6 +18,9 @@ BASE_URL = f"https://{BASE_DOMAIN}"
 LOCAL_EMAIL = ""     # 本地测试时填入邮箱
 LOCAL_PASSWORD = ""  # 本地测试时可以填入密码
 
+# server酱
+SCKEY = os.environ.get('SCKEY')
+
 def print_with_time(message, level="INFO"):
     """带时间戳和级别的打印"""
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
