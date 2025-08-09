@@ -230,12 +230,27 @@ def checkin(cookie):
         
         if data.get('ret') == 1:
             print_with_time(f"签到成功: {data.get('msg', '获得奖励')}", "SUCCESS")
+             # 进行推送
+            if SCKEY != '':
+                    push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, msg)
+                    requests.post(url=push_url)
+                    print('推送成功')            
             return True
         elif "已经签到" in data.get('msg', ''):
             print_with_time(f"今日已签到: {data.get('msg', '请明天再来')}", "WARNING")
+            # 进行推送
+            if SCKEY != '':
+                    push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, msg)
+                    requests.post(url=push_url)
+                    print('推送成功')          
             return True
         else:
             print_with_time(f"签到失败: {data.get('msg', '未知错误')}", "ERROR")
+            # 进行推送
+            if SCKEY != '':
+                    push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, msg)
+                    requests.post(url=push_url)
+                    print('推送成功')      
             return False
             
     except KeyboardInterrupt:
