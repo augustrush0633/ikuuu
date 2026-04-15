@@ -51,7 +51,7 @@ def login_and_get_cookie():
         # 发送登录请求
         login_url = "https://ikuuu.de/auth/login"
         headers.update({
-            'Origin': 'https://ikuuu.de',
+            'Origin': 'https://ikuuu.win',
             'Referer': 'https://ikuuu.de/auth/login',
             'Content-Type': 'application/x-www-form-urlencoded'
         })
